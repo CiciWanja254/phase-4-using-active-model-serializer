@@ -1,0 +1,9 @@
+class MovieSummarySerializer < ActiveModel::Serializer
+    attributes :id, :title, :year, :length, :director, :description, :poster_url, :category, :discount, :female_director, :summary
+   def summary
+        movie = Movie.find(params[:id])
+        render json: movie, serializer: MovieSummarySerializer
+      end
+      
+  end
+  
